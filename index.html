@@ -1,0 +1,62 @@
+<html>
+<head>
+    <style>
+        hr {
+          background-color: blue;
+        }
+    </style>
+
+</head>>
+<title>Access Log</title>
+
+<body style = 'background-color: #d2b48c;'> 
+  <div style = 'width:100%; height: 100%; text-align: center; vertical-align: middle;'>
+    <div style="display:inline-block ;background-color: #ffdead ; width: 80% ; height: 60%; color: black">
+        <div style="width: 100%"><p><b>Access Log</p></div>
+        <div style="display: inline-block; width: 33%"><p><b>Name</p><hr></div>
+        <div style="display: inline-block; width: 33%"><p><b>Access Date</p><hr></div>
+        <div style="display: inline-block; width: 33%"><p><b>Face Photo</p><hr></div>
+
+        <div style="overflow:scroll; height:70%">
+          <div id = 'log_name_div' style="display: inline-block; width: 33%"></div>
+          <div id = 'log_date_div' style="display: inline-block; width: 33%"></div>
+          <div id = 'face_img_div' style="display: inline-block; width: 33%"></div>
+        </div>
+        <hr>
+    </div>
+  </div>
+</body>
+
+</html>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+
+$( document ).ready(function(){
+
+    $.ajax({
+
+        type: "GET",
+        url: "http://210.115.230.129/select_access_log.php",
+        async: false,
+        beforeSend: function(x) {
+
+        },
+        success: function(data){
+
+        if(data){
+            $.each(JSON.parse(data), function(index, item){
+                $( "#log_name_div" ).append(item.name + "<br><hr>");
+                $( "#log_date_div" ).append(item.access_date + "<br><hr>");
+                $( "#face_img_div" ).append(item.face_picture_path + "<br><hr>");
+            });
+
+        }
+
+    }
+
+    });
+
+});
+
+
+</script>
