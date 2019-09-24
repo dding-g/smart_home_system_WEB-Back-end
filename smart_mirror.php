@@ -1,6 +1,5 @@
 <?php
 
-
 final class smart_mirror{
 
     public function db_init(){
