@@ -35,7 +35,7 @@ final class select_access_log{
             echo $e->getMessage();
         }   
     }
-    
+   
 }
 
 $select_access_log = new select_access_log;
