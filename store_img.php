@@ -9,10 +9,6 @@ final class select_access_log{
             $this->db = new PDO($dsn, "ddingg", "persona33");
             $this->db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-<<<<<<< HEAD
-            echo "데이터베이스 연결 성공!!\n";
-=======
->>>>>>> 00582fe574e4d0bf988cbb37d5a8512f96ae70cd
   
         } catch(PDOException $e) {
             echo $e->getMessage();
@@ -25,12 +21,8 @@ final class select_access_log{
             $sth = $this->db->prepare($sql);
             $sth->execute();
             $result = $sth->fetchAll();
-<<<<<<< HEAD
-            echo $result;
-=======
 
             print_r(json_encode($result));
->>>>>>> 00582fe574e4d0bf988cbb37d5a8512f96ae70cd
         }catch(Exception $e){
             echo $e->getMessage();
         }   
